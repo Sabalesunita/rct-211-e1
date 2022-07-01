@@ -13,7 +13,7 @@ const Navbar = () => {
       </div>
       <div>
         <h1>MEN'S SNEAKERS</h1>
-      </div>
+        </div>
     </div>
   );
 };

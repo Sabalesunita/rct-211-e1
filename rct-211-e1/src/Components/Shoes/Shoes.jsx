@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  fetchShoeData,
-} from "../../Redux/action";
+import { fetchShoeData} from "../../Redux/action";
 import ShoeCard from "./ShoeCard/ShoeCard";
 
 
@@ -12,18 +10,19 @@ const Shoes = () => {
   const isError=useSelector((state)=>state.isError)
   const dispatch=useDispatch()
 
-  useEffect(()=>{
+  useEffect(() => {
   fetchShoeData(dispatch)
   },[])
+
  if(isloading){
-  return <h1>Please Wait</h1>
+  return <h1>Please Wait...</h1>
  }
  if(isError){
-  return <h1>Something went wrong....</h1>
+  return <h1>Something went wrong, please try again</h1>
  }
   return <div className="container">
-     {data?.map((e)=>(
-      <ShoeCard key={e.id} {...e}/>
+     {data?.map((el)=>(
+      <ShoeCard key={el.id} {...el}/>
   ))}
   </div>;
 };
